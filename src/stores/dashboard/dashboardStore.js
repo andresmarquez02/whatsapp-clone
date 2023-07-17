@@ -34,11 +34,10 @@ export const useDashboardStore = defineStore("dashboard", () => {
     const addMessage = async () => {
       if (currentConversation.value !== null) {
         if(message.value !== "" && message.value.length > 0 ){
-
           addDoc(collection(db, "chats"), {
             text: message.value,
             uid: auth.currentUser.uid,
-            uidSend: currentConversation.value.uidContact,
+            uidSend: currentConversation.value.uidContact == auth.currentUser.uid ? currentConversation.value.uid : currentConversation.value.uidContact,
             time: Date.now(),
             read: false,
           });
