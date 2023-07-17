@@ -29,9 +29,11 @@
 
 <script setup>
 import { storeToRefs } from "pinia";
+import { ref } from "vue";
 import { useDashboardStore } from "../stores/dashboard/dashboardStore";
 
 const dashboardStore = useDashboardStore();
 const { message } = storeToRefs(dashboardStore);
 const { addMessage } = dashboardStore;
+const record = ref();
 </script>

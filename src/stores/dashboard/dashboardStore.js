@@ -38,7 +38,7 @@ export const useDashboardStore = defineStore("dashboard", () => {
           addDoc(collection(db, "chats"), {
             text: message.value,
             uid: auth.currentUser.uid,
-            uidSend: currentConversation.value.uid,
+            uidSend: currentConversation.value.uidContact,
             time: Date.now(),
             read: false,
           });
@@ -46,8 +46,11 @@ export const useDashboardStore = defineStore("dashboard", () => {
           let existConversation = null, backupUser = null;
 
           conversations.value.forEach(element => {
-            backupUser = element;
-            if(element.uidContact == currentConversation.value.uid || element.uid == currentConversation.value.uid)  return existConversation = element;
+
+            if(element.uidContact == currentConversation.value.uid || element.uid == currentConversation.value.uid)  {
+              backupUser = element;
+              return existConversation = element;
+            }
           });
 
           if(existConversation === null){
