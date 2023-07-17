@@ -41,10 +41,12 @@
 <script setup>
 import { collection, getDocs } from "firebase/firestore";
 import { storeToRefs } from "pinia";
+import { useQuasar } from "quasar";
 import { auth, db } from "src/firebase";
 import { useDashboardStore } from "src/stores/dashboard/dashboardStore";
 import { ref } from "vue";
 
+const $q = useQuasar();
 const dashboardStore = useDashboardStore();
 const { cardAddUser, leftDrawerOpen } = storeToRefs(dashboardStore);
 const { setCurrentConversation } = dashboardStore;
