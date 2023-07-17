@@ -153,6 +153,8 @@ export const useDashboardStore = defineStore("dashboard", () => {
         });
         if(conversationsGet.length > 0){
           setCurrentConversation(conversationsGet[0]);
+        } else{
+          leftDrawerOpen.value = true;
         }
         conversations.value = conversationsGet;
       });

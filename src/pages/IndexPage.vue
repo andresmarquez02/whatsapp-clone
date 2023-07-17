@@ -1,59 +1,75 @@
 <template>
-  <q-page class="flex flex-center q-pa-md bg-dark-1">
-    <div class="row w-100">
-      <div
-        class="col-md-6 col-12 flex flex-center q-mb-lg"
-        v-if="!$q.screen.md"
-      >
-        <img
-          alt="App Logo"
-          src="~assets/img_1.svg"
-          style="width: 200px; height: 200px"
+  <q-page>
+    <div class="bg-positive q-pa-lg" style="height: 220px">
+      <div class="flex" style="align-items: center">
+        <q-img
+          src="../assets/icon.svg"
+          spinner-color="white"
+          style="height: 35px; max-width: 35px"
         />
+        <h6 class="q-my-none q-ml-sm">Whatsapp Clone</h6>
       </div>
-      <div class="col-md-6 col-12 flex flex-center">
-        <div class="text-center text-md-initial">
-          <span class="text-blue-grey-3">Whatsapp Clone</span>
-          <h3 class="q-mb-lg q-mt-none text-white text-weight-bold">
-            Chat with your friends
-          </h3>
-          <div class="q-ml-md q-pl-md q-py-sm border-left text-white">
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime
-              accusantium, enim ducimus qui unde dolor dolore eligendi, nobis
-              iste nisi ipsam eos officia quis ut. Maxime optio facilis
-              asperiores animi? Lorem ipsum dolor sit amet consectetur
-              adipisicing elit. Maxime accusantium
-            </p>
-            <div class="q-mt-lg">
-              <q-btn
-                icon="login"
-                color="primary"
-                label="Ingresar"
-                class="q-mr-md"
-                @click="login"
+    </div>
+    <div class="q-px-lg">
+      <q-card style="margin-top: -7rem">
+        <q-card-section>
+          <div class="row w-100">
+            <div
+              class="col-md-6 col-12 flex flex-center q-mb-lg"
+              v-if="!$q.screen.md"
+            >
+              <img
+                alt="App Logo"
+                src="~assets/img_1.svg"
+                style="width: 200px; height: 200px"
               />
-              <q-btn
-                icon="lab la-github"
-                color="white"
-                outline
-                text-color="white"
-                label="Github"
-                href="https://github.com/andresmarquez02/whatsapp-clone"
-                target="_blank"
-                rel="noopener noreferrer"
+            </div>
+            <div class="col-md-6 col-12 flex flex-center">
+              <div class="text-center text-md-initial">
+                <span class="text-blue-grey-3">Whatsapp Clone</span>
+                <h3 class="q-mb-lg q-mt-none text-white text-weight-bold">
+                  Chat with your friends
+                </h3>
+                <div class="q-ml-md q-pl-md q-py-sm border-left text-white">
+                  <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Maxime accusantium, enim ducimus qui unde dolor dolore
+                    eligendi, nobis iste nisi ipsam eos officia quis ut. Maxime
+                    optio facilis asperiores animi? Lorem ipsum dolor sit amet
+                    consectetur adipisicing elit. Maxime accusantium
+                  </p>
+                  <div class="q-mt-lg">
+                    <q-btn
+                      icon="login"
+                      color="positive"
+                      label="Sign in"
+                      class="q-mr-md"
+                      @click="login"
+                    />
+                    <q-btn
+                      icon="lab la-github"
+                      color="white"
+                      outline
+                      text-color="white"
+                      label="Github"
+                      href="https://github.com/andresmarquez02/whatsapp-clone"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6 col-12 flex flex-center" v-if="$q.screen.md">
+              <img
+                alt="App Logo"
+                src="~assets/img_1.svg"
+                style="width: 500px; height: 500px"
               />
             </div>
           </div>
-        </div>
-      </div>
-      <div class="col-md-6 col-12 flex flex-center" v-if="$q.screen.md">
-        <img
-          alt="App Logo"
-          src="~assets/img_1.svg"
-          style="width: 400px; height: 400px"
-        />
-      </div>
+        </q-card-section>
+      </q-card>
     </div>
   </q-page>
 </template>

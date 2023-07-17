@@ -1,5 +1,9 @@
 <template>
-  <q-header class="bg-dark-4 text-white" style="height: 55px">
+  <q-header
+    class="bg-dark-4 text-white"
+    style="height: 55px"
+    v-if="currentConversation"
+  >
     <q-toolbar>
       <q-btn
         round

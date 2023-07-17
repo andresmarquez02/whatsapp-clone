@@ -4,7 +4,7 @@
     class="border-drawer"
     show-if-above
     :breakpoint="1020"
-    :width="500"
+    :width="maxWidth"
   >
     <q-toolbar class="bg-dark-4" style="height: 55px">
       <q-avatar class="cursor-pointer">
@@ -127,15 +127,38 @@ import { useAuthStore } from "../stores/auth/authStore";
 import DialogAddUserComponent from "./DialogAddUserComponent.vue";
 import ItemComponent from "./ItemComponent.vue";
 import { auth } from "src/firebase";
+import { ref } from "vue";
+import { Screen } from "quasar";
 
 const dashboardStore = useDashboardStore();
-const { leftDrawerOpen, search, conversations, cardAddUser } =
-  storeToRefs(dashboardStore);
+const {
+  leftDrawerOpen,
+  search,
+  conversations,
+  cardAddUser,
+  currentConversation,
+} = storeToRefs(dashboardStore);
 
 const { toggleLeftDrawer, setCurrentConversation } = dashboardStore;
 const authStore = useAuthStore();
 const { user } = storeToRefs(authStore);
 const { logout } = authStore;
+const maxWidth = ref(
+  Screen.name == "sm" || Screen.name == "xs" ? window.innerWidth : 500
+);
+
+window.addEventListener("resize", () => {
+  maxWidth.value =
+    Screen.name == "sm" || Screen.name == "xs" ? window.innerWidth : 500;
+});
+
+setInterval(() => {
+  if (leftDrawerOpen.value == false && !currentConversation.value) {
+    if (Screen.name == "sm" || Screen.name == "xs") {
+      leftDrawerOpen.value = true;
+    }
+  }
+}, 3000);
 </script>
 <style lang="scss">
 .toolbar-chat .q-field__control {

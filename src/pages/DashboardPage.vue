@@ -14,15 +14,7 @@
     </div>
   </q-page>
   <q-page class="q-pa-md flex flex-center" style="align-items: center" v-else>
-    <div class="w-100">
-      <div class="text-center">
-        <q-icon name="las la-comments" size="xl"></q-icon>
-      </div>
-      <h5 class="text-center q-mt-sm">
-        Add a friend or open a conversation <br />
-        to enjoy this app
-      </h5>
-    </div>
+    <NotChatComponent />
   </q-page>
 </template>
 
@@ -33,6 +25,7 @@ import MessageMeComponent from "components/dashboard/MessageMeComponent.vue";
 import MessageContactComponent from "components/dashboard/MessageContactComponent.vue";
 import { auth } from "src/firebase";
 import { onMounted } from "vue";
+import NotChatComponent from "src/components/NotChatComponent.vue";
 
 const dashboardStore = useDashboardStore();
 const { currentConversation, messages } = storeToRefs(dashboardStore);

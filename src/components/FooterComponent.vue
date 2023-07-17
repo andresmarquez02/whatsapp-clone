@@ -1,5 +1,5 @@
 <template>
-  <q-footer class="bg-dark-4">
+  <q-footer class="bg-dark-4" v-if="currentConversation">
     <q-toolbar class="row flex flex-center q-py-sm">
       <q-btn round flat icon="insert_emoticon" class="q-mr-sm text-grey-5" />
       <q-input
@@ -33,7 +33,7 @@ import { ref } from "vue";
 import { useDashboardStore } from "../stores/dashboard/dashboardStore";
 
 const dashboardStore = useDashboardStore();
-const { message } = storeToRefs(dashboardStore);
+const { message, currentConversation } = storeToRefs(dashboardStore);
 const { addMessage } = dashboardStore;
 const record = ref();
 </script>
