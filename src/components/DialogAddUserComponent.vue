@@ -66,7 +66,9 @@ const getUsers = async () => {
 };
 
 const messageUser = (user) => {
-  leftDrawerOpen.value = false;
+  if (!$q.screen.md) {
+    leftDrawerOpen.value = false;
+  }
   setCurrentConversation(user);
   cardAddUser.value = false;
   window.scrollBy({
